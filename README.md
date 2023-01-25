@@ -7,3 +7,17 @@ Test URL        : http://localhost:8000/currency-exchange/from/USD/to/TRY
 PROBLEM > ERROR 10068 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
 SOLVE   > spring.jpa.defer-datasource-initialization=true
 ---
+
+# Readme Note 2
+Connecting currency conversion exchange microservice to eureka
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        
+        @EnableDiscoveryClient
+        eureka.client.service-url.default-zone=http://localhost:8761/eureka
+        Open http://localhost:8761/ and see this message
+        CURRENCY-EXCHANGE-SERVICE 	n/a (1) 	(1) 	UP (1) - host.docker.internal:currency-exchange-service:8000
+---
